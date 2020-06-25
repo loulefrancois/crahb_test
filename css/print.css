@@ -1,0 +1,47 @@
+@page {
+    size: 21cm 21cm;
+    margin: 1cm;
+}
+
+@media print {
+
+    body {
+        margin: 0;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    img {
+        display: block;
+    }
+
+    #afficheMatch {
+        border: 0px;
+        padding: 1.1cm;
+        height: 100%;
+    }
+
+    h2 {
+        display: none;
+    }
+
+    p {
+        color: white;
+    }
+
+    #titre {
+        font-size: 42pt;
+        font-weight: 900;
+    }
+
+    #texte {
+        width: 14.6cm;
+        font-size: 21.5pt;
+        position: absolute;
+        bottom: 1.1cm;
+        font-weight: 800;
+    }
+
+}
