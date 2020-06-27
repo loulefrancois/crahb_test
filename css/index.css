@@ -1,0 +1,34 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#printableArea {
+    color: orange;
+    background-color: aqua;
+}
+
+h1 {
+    margin: 0;
+}
+
+@media print {
+
+    #testborder {
+        border: 1px solid black;
+        padding: 20mm;
+    }
+
+    #printableArea {
+        background-color: aqua;
+    }
+
+    #jesuislou {
+        display: none;
+    }
+
+    #printableArea2 h1 {
+        color: orange;
+    }
+
+}

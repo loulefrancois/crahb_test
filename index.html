@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="" />
     <!-- CSS -->
     <link rel="stylesheet" href="css/index3.css" />
-    <link type="text/css" rel="stylesheet" href="css/print.css" media="print" />
     <!--<link rel="stylesheet" href="css/grid_gruimier.css" />-->
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
@@ -36,80 +35,55 @@
 <body>
 
     <img src="images/crahb_recrutement_10.jpg">
-    
+
     <h1>Post Instagram :</h1>
 
     <div id="afficheMatch">
 
-            <h2>Titre de la publication :</h2>
-            <div id="titre" contenteditable="true">
-                <p>LE CRAHB RECHERCHE DES ENTRAÎNEURS</p>
-            </div>
-        
-            <h2>Lieu :</h2>
-            <div id="texte" contenteditable="true">
-                <p>Vous souhaitez participer à la vie d’un club ? Coacher une équipe la saison prochaine ? Rejoignez-nous !</p>
-            </div>
+        <h2>Titre du post :</h2>
+        <div id="titre" contenteditable="true">
+            <p><span class="uppercase">ici écrire le titre</span></p>
+        </div>
+
+        <h2>Description :</h2>
+        <div id="texte" contenteditable="true">
+            <p>Ici écrire la description</p>
+        </div>
 
     </div>
-    
- 
 
 
-    <script></script>
-    
-    <script>
-        function myFunction() {
 
-            var doc = new jsPDF('l', 'cm', '400, 400');
-            var text1 = document.getElementById('heure').textContent;
-            var text2 = document.getElementById('lieu').textContent;
-            var text3 = document.getElementById('equipe').textContent;
+    <div id="apercu">
 
-            doc.text(text1, 10, 10)
-            doc.text(text2, 10, 30)
-            doc.text(text3, 10, 50)
-            doc.save('a4.pdf')
+        <img src="images/crahb_recrutement_10.jpg">
 
-        }
-    </script>
+        <p id="titreapercu"><span class="uppercase">Le titre s'affichera ici</span></p>
+
+        <p id="texteapercu">La description s'affichera ici</p>
+
+    </div>
+
+    <form>
+        <input type="button" value="Imprimer" onClick="window.print()">
+    </form>
 
     <script>
-        function getPDF() {
+        $("#titre").keyup(function(touche) {
+            var texteTitreApercu = $("#titre p").text();
+            $("#titreapercu span").text(texteTitreApercu);
+        });
 
-            var HTML_Width = $(".canvas_div_pdf").width();
-            var HTML_Height = $(".canvas_div_pdf").height();
-            var top_left_margin = 15;
-            var PDF_Width = HTML_Width + (top_left_margin * 2);
-            var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
-            var canvas_image_width = HTML_Width;
-            var canvas_image_height = HTML_Height;
+        $("#texte").keyup(function(touche) {
+            var texteTexteApercu = $("#texte p").text();
+            $("#texteapercu").text(texteTexteApercu);
+        });
 
-            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
-
-
-            html2canvas($(".canvas_div_pdf")[0], {
-                allowTaint: true
-            }).then(function(canvas) {
-                canvas.getContext('2d');
-
-                console.log(canvas.height + "  " + canvas.width);
-
-
-                var imgData = canvas.toDataURL("image/jpeg", 1.0);
-                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
-
-
-                for (var i = 1; i <= totalPDFPages; i++) {
-                    pdf.addPage(PDF_Width, PDF_Height);
-                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
-                }
-
-                pdf.save("HTML-Document.pdf");
-            });
-        };
+        var imageApercuHeight = $("#apercu img").height();
+        $("#apercu").css("height", imageApercuHeight);
     </script>
+
+
 
 </body>
 

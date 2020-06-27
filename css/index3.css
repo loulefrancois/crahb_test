@@ -2,6 +2,9 @@
     border: 2px solid;
     padding: 2em;
     padding-top: 0;
+    margin-right: 2%;
+    width: 45%;
+    float: left;
 }
 
 * {
@@ -27,6 +30,10 @@ p {
     font-size: 1.2em;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 img {
     width: 100%;
     position: absolute;
@@ -34,12 +41,84 @@ img {
     display: none;
 }
 
+#test_ouverture {
+    border: 2px solid blue;
+    float: left;
+    width: 200px;
+    height: 200px;
+    display: none;
+}
+
+
+
+
+
+#apercu {
+    width: 48%;
+    height: 30em;
+    float: left;
+    position: relative;
+}
+
+#apercu img {
+    display: block;
+}
+
+#apercu p#titreapercu,
+#apercu p#texteapercu {
+    position: absolute;
+    margin-left: 0.9em;
+    color: white;
+}
+
+#apercu p#titreapercu {
+    margin-top: 0.7em;
+    width: 12.7em;
+    font-size: 40pt;
+    font-weight: 900;
+}
+
+#apercu p#texteapercu {
+    bottom: 0;
+    margin-left: 1.8em;
+    margin-bottom: 1.4em;
+    font-weight: 700;
+    width: 20.6em;
+    font-size: 20pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @page {
     size: 21cm 21cm;
     margin: 1cm;
 }
 
 @media print {
+
+    #afficheMatch {
+        display: none;
+    }
 
     body {
         margin: 0;
@@ -50,13 +129,15 @@ img {
     }
 
     img {
-        display: block;
+        display: none;
     }
 
-    #afficheMatch {
-        border: 0px;
-        padding: 1.1cm;
-        height: 100%;
+    #apercu {
+        width: 100%;
+    }
+
+    apercu img {
+        display: block;
     }
 
     h2 {
@@ -67,22 +148,6 @@ img {
         color: white;
     }
 
-    #titre {
-        width: 17.8cm;
-        font-size: 40pt;
-        font-weight: 900;
-        position: absolute;
-    }
 
-    #texte {
-        width: 14.6cm;
-        font-size: 21.5pt;
-        position: absolute;
-        bottom: 1.1cm;
-        font-weight: 800;
-    }
 
 }
-
-
-
